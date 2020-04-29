@@ -34,6 +34,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         // 退出登录的地址为 "/logout"，退出成功后跳转到页面 "/login"
         http.logout().logoutUrl("/logout").logoutSuccessUrl("/");
+
+        /* 开启记住我功能，相当于 cookie，默认保存两周 */
+        http.rememberMe().rememberMeParameter("remember");
     }
 
     @Override
