@@ -28,8 +28,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/admin/**").hasRole("admin")
                 .and()
-                .formLogin().loginPage("/login").defaultSuccessUrl("/admin/index");
+                .formLogin().loginPage("/login");
+        /*这个是用来防范CSRF跨站请求伪造攻击的，在学习阶段关掉*/
         http.csrf().disable();
+
+        // 退出登录的地址为 "/logout"，退出成功后跳转到页面 "/login"
+        http.logout().logoutUrl("/logout").logoutSuccessUrl("/");
     }
 
     @Override
