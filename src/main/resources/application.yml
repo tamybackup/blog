@@ -1,0 +1,9 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql:///tamyblog?serverTimezone=UTC
+      username: root
+      password: 123456
